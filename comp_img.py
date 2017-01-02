@@ -34,7 +34,7 @@ while True:
   print('Converting image to grayscale')
   new_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2GRAY)
   if not old_img:
-  	print('Captured original image')
+    print('Captured original image')
     old_img = new_img
     sleep(10)
     continue
