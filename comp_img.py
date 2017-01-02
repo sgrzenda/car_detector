@@ -26,12 +26,15 @@ sleep(2)
 
 
 while True:
+  print('Capturing image')
   cam.capture(stream, format='jpeg')
   data = np.fromstring(stream.getvalue(), dtype=np.uint8)
   # "Decode" the image from the array, preserving colour
   new_image = cv2.imdecode(data, 1)
+  print('Converting image to grayscale')
   new_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2GRAY)
   if not old_img:
+  	print('Captured original image')
     old_img = new_img
     sleep(10)
     continue
