@@ -31,9 +31,8 @@ while True:
   data = np.fromstring(stream.getvalue(), dtype=np.uint8)
   # "Decode" the image from the array, preserving colour
   new_image = cv2.imdecode(data, 1)
-  print('Converting image to grayscale')
   new_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2GRAY)
-  if not old_img:
+  if old_img is None:
     print('Captured original image')
     old_img = new_img
     sleep(10)
